@@ -41,7 +41,7 @@ nv.models.scatter = function() {
         , useVoronoi   = true
         , duration     = 250
         , interactiveUpdateDelay = 300
-        , showLabels    = false 
+        , showLabels    = false
         ;
 
 
@@ -99,7 +99,7 @@ nv.models.scatter = function() {
             });
 
             // Setup Scales
-            var logScale = chart.yScale().name === d3.scale.log().name ? true : false; 
+            var logScale = chart.yScale().name === d3.scale.log().name ? true : false;
             // remap and flatten the data for use in calculating the scales' domains
             var seriesData = (xDomain && yDomain && sizeDomain) ? [] : // if we know xDomain and yDomain and sizeDomain, no need to calculate.... if Size is constant remember to set sizeDomain to speed up performance
                 d3.merge(
@@ -335,14 +335,16 @@ nv.models.scatter = function() {
                             if (needsUpdate || !data[d.series]) return 0; //check if this is a dummy point
                             var series = data[d.series],
                                 point  = series.values[i];
-
+                            var element = this;
                             dispatch.elementClick({
                                 point: point,
                                 series: series,
                                 pos: [x(getX(point, i)) + margin.left, y(getY(point, i)) + margin.top], //TODO: make this pos base on the page
                                 relativePos: [x(getX(point, i)) + margin.left, y(getY(point, i)) + margin.top],
                                 seriesIndex: d.series,
-                                pointIndex: i
+                                pointIndex: i,
+                                event: d3.event,
+                                element: element
                             });
                         })
                         .on('dblclick', function(d,i) {
@@ -457,10 +459,10 @@ nv.models.scatter = function() {
                     .type(function(d) { return getShape(d[0]); })
                     .size(function(d) { return z(getSize(d[0],d[1])) })
             );
-            
-            // add label a label to scatter chart 
+
+            // add label a label to scatter chart
             if(showLabels)
-            {      
+            {
                 var titles =  groups.selectAll('.nv-label')
                     .data(function(d) {
                         return d.values.map(
@@ -473,7 +475,7 @@ nv.models.scatter = function() {
                         });
 
                 titles.enter().append('text')
-                    .style('fill', function (d,i) { 
+                    .style('fill', function (d,i) {
                         return d.color })
                     .style('stroke-opacity', 0)
                     .style('fill-opacity', 1)
