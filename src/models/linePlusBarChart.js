@@ -70,13 +70,13 @@ nv.models.linePlusBarChart = function() {
     //------------------------------------------------------------
 
     var getBarsAxis = function() {
-        return !switchYAxisOrder
+        return switchYAxisOrder
             ? { main: y2Axis, focus: y4Axis }
             : { main: y1Axis, focus: y3Axis }
     }
 
     var getLinesAxis = function() {
-        return !switchYAxisOrder
+        return switchYAxisOrder
             ? { main: y1Axis, focus: y3Axis }
             : { main: y2Axis, focus: y4Axis }
     }
@@ -450,6 +450,7 @@ nv.models.linePlusBarChart = function() {
                                 return {
                                     area: d.area,
                                     fillOpacity: d.fillOpacity,
+                                    strokeWidth: d.strokeWidth,
                                     key: d.key,
                                     values: d.values.filter(function(d,i) {
                                         return lines.x()(d,i) >= extent[0] && lines.x()(d,i) <= extent[1];
