@@ -92,7 +92,7 @@ nv.models.linePlusBarChart = function() {
 
     var stateSetter = function(data) {
         return function(state) {
-            if (state.active !== undefined)
+            if (state.active != null)
                 data.forEach(function(series,i) {
                     series.disabled = !state.active[i];
                 });
@@ -607,19 +607,19 @@ nv.models.linePlusBarChart = function() {
 
         // options that require extra logic in the setter
         margin: {get: function(){return margin;}, set: function(_){
-            if (_.top !== undefined) {
+            if (_.top != null) {
                 margin.top = _.top;
                 marginTop = _.top;
             }
-            margin.right  = _.right  !== undefined ? _.right  : margin.right;
-            margin.bottom = _.bottom !== undefined ? _.bottom : margin.bottom;
-            margin.left   = _.left   !== undefined ? _.left   : margin.left;
+            margin.right  = _.right  != null ? _.right  : margin.right;
+            margin.bottom = _.bottom != null ? _.bottom : margin.bottom;
+            margin.left   = _.left   != null ? _.left   : margin.left;
         }},
         focusMargin: {get: function(){return margin2;}, set: function(_){
-            margin2.top    = _.top    !== undefined ? _.top    : margin2.top;
-            margin2.right  = _.right  !== undefined ? _.right  : margin2.right;
-            margin2.bottom = _.bottom !== undefined ? _.bottom : margin2.bottom;
-            margin2.left   = _.left   !== undefined ? _.left   : margin2.left;
+            margin2.top    = _.top    != null ? _.top    : margin2.top;
+            margin2.right  = _.right  != null ? _.right  : margin2.right;
+            margin2.bottom = _.bottom != null ? _.bottom : margin2.bottom;
+            margin2.left   = _.left   != null ? _.left   : margin2.left;
         }},
         duration: {get: function(){return transitionDuration;}, set: function(_){
             transitionDuration = _;

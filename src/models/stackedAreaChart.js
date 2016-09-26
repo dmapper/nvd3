@@ -86,9 +86,9 @@ nv.models.stackedAreaChart = function() {
 
     var stateSetter = function(data) {
         return function(state) {
-            if (state.style !== undefined)
+            if (state.style != null)
                 style = state.style;
-            if (state.active !== undefined)
+            if (state.active != null)
                 data.forEach(function(series,i) {
                     series.disabled = !state.active[i];
                 });
@@ -613,19 +613,19 @@ nv.models.stackedAreaChart = function() {
 
         // options that require extra logic in the setter
         margin: {get: function(){return margin;}, set: function(_){
-            if (_.top !== undefined) {
+            if (_.top != null) {
                 margin.top = _.top;
                 marginTop = _.top;
             }
-            margin.right  = _.right  !== undefined ? _.right  : margin.right;
-            margin.bottom = _.bottom !== undefined ? _.bottom : margin.bottom;
-            margin.left   = _.left   !== undefined ? _.left   : margin.left;
+            margin.right  = _.right  != null ? _.right  : margin.right;
+            margin.bottom = _.bottom != null ? _.bottom : margin.bottom;
+            margin.left   = _.left   != null ? _.left   : margin.left;
         }},
         focusMargin: {get: function(){return focus.margin}, set: function(_){
-            focus.margin.top    = _.top    !== undefined ? _.top    : focus.margin.top;
-            focus.margin.right  = _.right  !== undefined ? _.right  : focus.margin.right;
-            focus.margin.bottom = _.bottom !== undefined ? _.bottom : focus.margin.bottom;
-            focus.margin.left   = _.left   !== undefined ? _.left   : focus.margin.left;
+            focus.margin.top    = _.top    != null ? _.top    : focus.margin.top;
+            focus.margin.right  = _.right  != null ? _.right  : focus.margin.right;
+            focus.margin.bottom = _.bottom != null ? _.bottom : focus.margin.bottom;
+            focus.margin.left   = _.left   != null ? _.left   : focus.margin.left;
         }},
         duration: {get: function(){return duration;}, set: function(_){
             duration = _;

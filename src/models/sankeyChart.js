@@ -216,15 +216,15 @@ nv.models.sankeyChart = function() {
 
         // options that require extra logic in the setter
         margin: {get: function(){return margin;}, set: function(_){
-            margin.top    = _.top    !== undefined ? _.top    : margin.top;
-            margin.right  = _.right  !== undefined ? _.right  : margin.right;
-            margin.bottom = _.bottom !== undefined ? _.bottom : margin.bottom;
-            margin.left   = _.left   !== undefined ? _.left   : margin.left;
+            margin.top    = _.top    != null ? _.top    : margin.top;
+            margin.right  = _.right  != null ? _.right  : margin.right;
+            margin.bottom = _.bottom != null ? _.bottom : margin.bottom;
+            margin.left   = _.left   != null ? _.left   : margin.left;
         }},
         nodeStyle: {get: function(){return {};}, set: function(_){
-            nodeFillColor   = _.fillColor   !== undefined ? _.fillColor   : nodeFillColor;
-            nodeStrokeColor = _.strokeColor !== undefined ? _.strokeColor : nodeStrokeColor;
-            nodeTitle       = _.title       !== undefined ? _.title       : nodeTitle;
+            nodeFillColor   = _.fillColor   != null ? _.fillColor   : nodeFillColor;
+            nodeStrokeColor = _.strokeColor != null ? _.strokeColor : nodeStrokeColor;
+            nodeTitle       = _.title       != null ? _.title       : nodeTitle;
         }}
 
     });

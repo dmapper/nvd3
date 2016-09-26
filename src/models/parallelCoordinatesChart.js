@@ -43,7 +43,7 @@ nv.models.parallelCoordinatesChart = function () {
 
         var stateSetter = function(data) {
             return function(state) {
-                if(state.active !== undefined) {
+                if(state.active != null) {
                     data.forEach(function(series, i) {
                         series.disabled = !state.active[i];
                     });
@@ -277,13 +277,13 @@ nv.models.parallelCoordinatesChart = function () {
             margin: {
                 get: function () { return margin; },
                 set: function (_) {
-                    if (_.top !== undefined) {
+                    if (_.top != null) {
                         margin.top = _.top;
                         marginTop = _.top;
                     }
-                    margin.right = _.right !== undefined ? _.right : margin.right;
-                    margin.bottom = _.bottom !== undefined ? _.bottom : margin.bottom;
-                    margin.left = _.left !== undefined ? _.left : margin.left;
+                    margin.right = _.right != null ? _.right : margin.right;
+                    margin.bottom = _.bottom != null ? _.bottom : margin.bottom;
+                    margin.left = _.left != null ? _.left : margin.left;
                 }
             },
             color: {get: function(){return color;}, set: function(_){

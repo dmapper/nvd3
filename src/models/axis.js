@@ -68,7 +68,7 @@ nv.models.axis = function() {
             axisLabel.exit().remove();
 
             //only skip when fontSize is undefined so it can be cleared with a null or blank string
-            if (fontSize !== undefined) {
+            if (fontSize != null) {
                 g.selectAll('g').select("text").style('font-size', fontSize);
             }
 
@@ -123,7 +123,7 @@ nv.models.axis = function() {
                     var rotateLabelsRule = '';
                     if (rotateLabels%360) {
                         //Reset transform on ticks so textHeight can be calculated correctly
-                        xTicks.attr('transform', ''); 
+                        xTicks.attr('transform', '');
                         //Calculate the longest xTick width
                         xTicks.each(function(d,i){
                             var box = this.getBoundingClientRect();
@@ -330,10 +330,10 @@ nv.models.axis = function() {
                     Numbers like 0.00001 need to count as zero as well,
                     and the arithmetic trick below solves that.
                     */
-                    return !parseFloat(Math.round(d * 100000) / 1000000) && (d !== undefined)
-                }) 
+                    return !parseFloat(Math.round(d * 100000) / 1000000) && (d != null)
+                })
                 .classed('zero', true);
-            
+
             //store old scales for use in transitions on update
             scale0 = scale.copy();
 
@@ -367,10 +367,10 @@ nv.models.axis = function() {
 
         // options that require extra logic in the setter
         margin: {get: function(){return margin;}, set: function(_){
-            margin.top    = _.top !== undefined    ? _.top    : margin.top;
-            margin.right  = _.right !== undefined  ? _.right  : margin.right;
-            margin.bottom = _.bottom !== undefined ? _.bottom : margin.bottom;
-            margin.left   = _.left !== undefined   ? _.left   : margin.left;
+            margin.top    = _.top != null    ? _.top    : margin.top;
+            margin.right  = _.right != null  ? _.right  : margin.right;
+            margin.bottom = _.bottom != null ? _.bottom : margin.bottom;
+            margin.left   = _.left != null   ? _.left   : margin.left;
         }},
         duration: {get: function(){return duration;}, set: function(_){
             duration=_;
