@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/* nvd3 version 1.8.4-dev (https://github.com/novus/nvd3) 2016-09-25 */
-=======
-/* nvd3 version 1.8.4-dev (https://github.com/novus/nvd3) 2016-10-02 */
->>>>>>> 937ec2a883deb8faa9a10df70a526dd29ba6dd70
+/* nvd3 version 1.8.4-dev (https://github.com/novus/nvd3) 2016-10-03 */
 (function(){
 
 // set up main nv object
@@ -3908,7 +3904,6 @@ nv.models.cumulativeLineChart = function() {
 
         // options that require extra logic in the setter
         margin: {get: function(){return margin;}, set: function(_){
-<<<<<<< HEAD
             if (_.top != null) {
                 margin.top = _.top;
                 marginTop = _.top;
@@ -3916,15 +3911,6 @@ nv.models.cumulativeLineChart = function() {
             margin.right  = _.right  != null ? _.right  : margin.right;
             margin.bottom = _.bottom != null ? _.bottom : margin.bottom;
             margin.left   = _.left   != null ? _.left   : margin.left;
-=======
-            if (_.top !== undefined) {
-                margin.top = _.top;
-                marginTop = _.top;
-            }
-            margin.right  = _.right  !== undefined ? _.right  : margin.right;
-            margin.bottom = _.bottom !== undefined ? _.bottom : margin.bottom;
-            margin.left   = _.left   !== undefined ? _.left   : margin.left;
->>>>>>> 937ec2a883deb8faa9a10df70a526dd29ba6dd70
         }},
         color:  {get: function(){return color;}, set: function(_){
             color = nv.utils.getColor(_);
@@ -4461,7 +4447,6 @@ nv.models.discreteBarChart = function() {
 
         // options that require extra logic in the setter
         margin: {get: function(){return margin;}, set: function(_){
-<<<<<<< HEAD
             if (_.top != null) {
                 margin.top = _.top;
                 marginTop = _.top;
@@ -4469,15 +4454,6 @@ nv.models.discreteBarChart = function() {
             margin.right  = _.right  != null ? _.right  : margin.right;
             margin.bottom = _.bottom != null ? _.bottom : margin.bottom;
             margin.left   = _.left   != null ? _.left   : margin.left;
-=======
-            if (_.top !== undefined) {
-                margin.top = _.top;
-                marginTop = _.top;
-            }
-            margin.right  = _.right  !== undefined ? _.right  : margin.right;
-            margin.bottom = _.bottom !== undefined ? _.bottom : margin.bottom;
-            margin.left   = _.left   !== undefined ? _.left   : margin.left;
->>>>>>> 937ec2a883deb8faa9a10df70a526dd29ba6dd70
         }},
         duration: {get: function(){return duration;}, set: function(_){
             duration = _;
@@ -6059,7 +6035,6 @@ nv.models.historicalBarChart = function(bar_model) {
 
         // options that require extra logic in the setter
         margin: {get: function(){return margin;}, set: function(_){
-<<<<<<< HEAD
             if (_.top != null) {
                 margin.top = _.top;
                 marginTop = _.top;
@@ -6067,15 +6042,6 @@ nv.models.historicalBarChart = function(bar_model) {
             margin.right  = _.right  != null ? _.right  : margin.right;
             margin.bottom = _.bottom != null ? _.bottom : margin.bottom;
             margin.left   = _.left   != null ? _.left   : margin.left;
-=======
-            if (_.top !== undefined) {
-                margin.top = _.top;
-                marginTop = _.top;
-            }
-            margin.right  = _.right  !== undefined ? _.right  : margin.right;
-            margin.bottom = _.bottom !== undefined ? _.bottom : margin.bottom;
-            margin.left   = _.left   !== undefined ? _.left   : margin.left;
->>>>>>> 937ec2a883deb8faa9a10df70a526dd29ba6dd70
         }},
         color:  {get: function(){return color;}, set: function(_){
             color = nv.utils.getColor(_);
@@ -7246,7 +7212,6 @@ nv.models.lineChart = function() {
 
         // options that require extra logic in the setter
         focusMargin: {get: function(){return focus.margin}, set: function(_){
-<<<<<<< HEAD
             if (_.top != null) {
                 margin.top = _.top;
                 marginTop = _.top;
@@ -7254,15 +7219,6 @@ nv.models.lineChart = function() {
             focus.margin.right  = _.right  != null ? _.right  : focus.margin.right;
             focus.margin.bottom = _.bottom != null ? _.bottom : focus.margin.bottom;
             focus.margin.left   = _.left   != null ? _.left   : focus.margin.left;
-=======
-            if (_.top !== undefined) {
-                margin.top = _.top;
-                marginTop = _.top;
-            }
-            focus.margin.right  = _.right  !== undefined ? _.right  : focus.margin.right;
-            focus.margin.bottom = _.bottom !== undefined ? _.bottom : focus.margin.bottom;
-            focus.margin.left   = _.left   !== undefined ? _.left   : focus.margin.left;
->>>>>>> 937ec2a883deb8faa9a10df70a526dd29ba6dd70
         }},
         margin: {get: function(){return margin;}, set: function(_){
             margin.top    = _.top    != null ? _.top    : margin.top;
@@ -7937,7 +7893,6 @@ nv.models.linePlusBarChart = function() {
 
         // options that require extra logic in the setter
         margin: {get: function(){return margin;}, set: function(_){
-<<<<<<< HEAD
             if (_.top != null) {
                 margin.top = _.top;
                 marginTop = _.top;
@@ -7945,15 +7900,6 @@ nv.models.linePlusBarChart = function() {
             margin.right  = _.right  != null ? _.right  : margin.right;
             margin.bottom = _.bottom != null ? _.bottom : margin.bottom;
             margin.left   = _.left   != null ? _.left   : margin.left;
-=======
-            if (_.top !== undefined) {
-                margin.top = _.top;
-                marginTop = _.top;
-            }
-            margin.right  = _.right  !== undefined ? _.right  : margin.right;
-            margin.bottom = _.bottom !== undefined ? _.bottom : margin.bottom;
-            margin.left   = _.left   !== undefined ? _.left   : margin.left;
->>>>>>> 937ec2a883deb8faa9a10df70a526dd29ba6dd70
         }},
         focusMargin: {get: function(){return margin2;}, set: function(_){
             margin2.top    = _.top    != null ? _.top    : margin2.top;
@@ -8912,7 +8858,6 @@ nv.models.multiBarChart = function() {
 
         // options that require extra logic in the setter
         margin: {get: function(){return margin;}, set: function(_){
-<<<<<<< HEAD
             if (_.top != null) {
                 margin.top = _.top;
                 marginTop = _.top;
@@ -8920,15 +8865,6 @@ nv.models.multiBarChart = function() {
             margin.right  = _.right  != null ? _.right  : margin.right;
             margin.bottom = _.bottom != null ? _.bottom : margin.bottom;
             margin.left   = _.left   != null ? _.left   : margin.left;
-=======
-            if (_.top !== undefined) {
-                margin.top = _.top;
-                marginTop = _.top;
-            }
-            margin.right  = _.right  !== undefined ? _.right  : margin.right;
-            margin.bottom = _.bottom !== undefined ? _.bottom : margin.bottom;
-            margin.left   = _.left   !== undefined ? _.left   : margin.left;
->>>>>>> 937ec2a883deb8faa9a10df70a526dd29ba6dd70
         }},
         duration: {get: function(){return duration;}, set: function(_){
             duration = _;
@@ -9670,7 +9606,6 @@ nv.models.multiBarHorizontalChart = function() {
 
         // options that require extra logic in the setter
         margin: {get: function(){return margin;}, set: function(_){
-<<<<<<< HEAD
             if (_.top != null) {
                 margin.top = _.top;
                 marginTop = _.top;
@@ -9678,15 +9613,6 @@ nv.models.multiBarHorizontalChart = function() {
             margin.right  = _.right  != null ? _.right  : margin.right;
             margin.bottom = _.bottom != null ? _.bottom : margin.bottom;
             margin.left   = _.left   != null ? _.left   : margin.left;
-=======
-            if (_.top !== undefined) {
-                margin.top = _.top;
-                marginTop = _.top;
-            }
-            margin.right  = _.right  !== undefined ? _.right  : margin.right;
-            margin.bottom = _.bottom !== undefined ? _.bottom : margin.bottom;
-            margin.left   = _.left   !== undefined ? _.left   : margin.left;
->>>>>>> 937ec2a883deb8faa9a10df70a526dd29ba6dd70
         }},
         duration: {get: function(){return duration;}, set: function(_){
             duration = _;
@@ -10239,7 +10165,6 @@ nv.models.multiChart = function() {
 
         // options that require extra logic in the setter
         margin: {get: function(){return margin;}, set: function(_){
-<<<<<<< HEAD
             if (_.top != null) {
                 margin.top = _.top;
                 marginTop = _.top;
@@ -10247,15 +10172,6 @@ nv.models.multiChart = function() {
             margin.right  = _.right  != null ? _.right  : margin.right;
             margin.bottom = _.bottom != null ? _.bottom : margin.bottom;
             margin.left   = _.left   != null ? _.left   : margin.left;
-=======
-            if (_.top !== undefined) {
-                margin.top = _.top;
-                marginTop = _.top;
-            }
-            margin.right  = _.right  !== undefined ? _.right  : margin.right;
-            margin.bottom = _.bottom !== undefined ? _.bottom : margin.bottom;
-            margin.left   = _.left   !== undefined ? _.left   : margin.left;
->>>>>>> 937ec2a883deb8faa9a10df70a526dd29ba6dd70
         }},
         color:  {get: function(){return color;}, set: function(_){
             color = nv.utils.getColor(_);
@@ -11319,7 +11235,6 @@ nv.models.parallelCoordinatesChart = function () {
             margin: {
                 get: function () { return margin; },
                 set: function (_) {
-<<<<<<< HEAD
                     if (_.top != null) {
                         margin.top = _.top;
                         marginTop = _.top;
@@ -11327,15 +11242,6 @@ nv.models.parallelCoordinatesChart = function () {
                     margin.right = _.right != null ? _.right : margin.right;
                     margin.bottom = _.bottom != null ? _.bottom : margin.bottom;
                     margin.left = _.left != null ? _.left : margin.left;
-=======
-                    if (_.top !== undefined) {
-                        margin.top = _.top;
-                        marginTop = _.top;
-                    }
-                    margin.right = _.right !== undefined ? _.right : margin.right;
-                    margin.bottom = _.bottom !== undefined ? _.bottom : margin.bottom;
-                    margin.left = _.left !== undefined ? _.left : margin.left;
->>>>>>> 937ec2a883deb8faa9a10df70a526dd29ba6dd70
                 }
             },
             color: {get: function(){return color;}, set: function(_){
@@ -12024,7 +11930,6 @@ nv.models.pieChart = function() {
             pie.duration(duration);
         }},
         margin: {get: function(){return margin;}, set: function(_){
-<<<<<<< HEAD
             if (_.top != null) {
                 margin.top = _.top;
                 marginTop = _.top;
@@ -12032,15 +11937,6 @@ nv.models.pieChart = function() {
             margin.right  = _.right  != null ? _.right  : margin.right;
             margin.bottom = _.bottom != null ? _.bottom : margin.bottom;
             margin.left   = _.left   != null ? _.left   : margin.left;
-=======
-            if (_.top !== undefined) {
-                margin.top = _.top;
-                marginTop = _.top;
-            }
-            margin.right  = _.right  !== undefined ? _.right  : margin.right;
-            margin.bottom = _.bottom !== undefined ? _.bottom : margin.bottom;
-            margin.left   = _.left   !== undefined ? _.left   : margin.left;
->>>>>>> 937ec2a883deb8faa9a10df70a526dd29ba6dd70
         }}
     });
     nv.utils.inheritOptions(chart, pie);
@@ -13621,7 +13517,6 @@ nv.models.scatterChart = function() {
 
         // options that require extra logic in the setter
         margin: {get: function(){return margin;}, set: function(_){
-<<<<<<< HEAD
             if (_.top != null) {
                 margin.top = _.top;
                 marginTop = _.top;
@@ -13629,15 +13524,6 @@ nv.models.scatterChart = function() {
             margin.right  = _.right  != null ? _.right  : margin.right;
             margin.bottom = _.bottom != null ? _.bottom : margin.bottom;
             margin.left   = _.left   != null ? _.left   : margin.left;
-=======
-            if (_.top !== undefined) {
-                margin.top = _.top;
-                marginTop = _.top;
-            }
-            margin.right  = _.right  !== undefined ? _.right  : margin.right;
-            margin.bottom = _.bottom !== undefined ? _.bottom : margin.bottom;
-            margin.left   = _.left   !== undefined ? _.left   : margin.left;
->>>>>>> 937ec2a883deb8faa9a10df70a526dd29ba6dd70
         }},
         rightAlignYAxis: {get: function(){return rightAlignYAxis;}, set: function(_){
             rightAlignYAxis = _;
@@ -14960,7 +14846,6 @@ nv.models.stackedAreaChart = function() {
 
         // options that require extra logic in the setter
         margin: {get: function(){return margin;}, set: function(_){
-<<<<<<< HEAD
             if (_.top != null) {
                 margin.top = _.top;
                 marginTop = _.top;
@@ -14968,15 +14853,6 @@ nv.models.stackedAreaChart = function() {
             margin.right  = _.right  != null ? _.right  : margin.right;
             margin.bottom = _.bottom != null ? _.bottom : margin.bottom;
             margin.left   = _.left   != null ? _.left   : margin.left;
-=======
-            if (_.top !== undefined) {
-                margin.top = _.top;
-                marginTop = _.top;
-            }
-            margin.right  = _.right  !== undefined ? _.right  : margin.right;
-            margin.bottom = _.bottom !== undefined ? _.bottom : margin.bottom;
-            margin.left   = _.left   !== undefined ? _.left   : margin.left;
->>>>>>> 937ec2a883deb8faa9a10df70a526dd29ba6dd70
         }},
         focusMargin: {get: function(){return focus.margin}, set: function(_){
             focus.margin.top    = _.top    != null ? _.top    : focus.margin.top;
@@ -15556,3 +15432,4 @@ nv.models.sunburstChart = function() {
 
 nv.version = "1.8.4-dev";
 })();
+//# sourceMappingURL=nv.d3.js.map
