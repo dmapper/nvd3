@@ -1,4 +1,4 @@
-/* nvd3 version 1.8.5-dev (https://github.com/novus/nvd3) 2017-02-02 */
+/* nvd3 version 1.8.5-dev (https://github.com/novus/nvd3) 2017-02-08 */
 (function(){
 
 // set up main nv object
@@ -6988,7 +6988,6 @@ nv.models.lineChart = function() {
                 g.select('.nv-focusWrap')
                     .style('display', focusEnable ? 'initial' : 'none')
                     .attr('transform', 'translate(0,' + ( availableHeight + margin.bottom + focus.margin().top) + ')')
-                    .datum(data.filter(function(d) { return !d.disabled; }))
                     .call(focus);
                 var extent = focus.brush.empty() ? focus.xDomain() : focus.brush.extent();
                 if (extent !== null) {
