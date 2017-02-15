@@ -1,4 +1,4 @@
-/* nvd3 version 1.8.5-dev (https://github.com/novus/nvd3) 2017-02-08 */
+/* nvd3 version 1.8.5-dev (https://github.com/novus/nvd3) 2017-02-15 */
 (function(){
 
 // set up main nv object
@@ -1588,6 +1588,27 @@ nv.utils.arrayEquals = function (array1, array2) {
     }
     return true;
 };
+
+/*
+ Check if a point within an arc
+ */
+nv.utils.pointIsInArc = function(pt, ptData, d3Arc) {
+    // Center of the arc is assumed to be 0,0
+    // (pt.x, pt.y) are assumed to be relative to the center
+    var r1 = d3Arc.innerRadius()(ptData), // Note: Using the innerRadius
+      r2 = d3Arc.outerRadius()(ptData),
+      theta1 = d3Arc.startAngle()(ptData),
+      theta2 = d3Arc.endAngle()(ptData);
+
+    var dist = pt.x * pt.x + pt.y * pt.y,
+      angle = Math.atan2(pt.x, -pt.y); // Note: different coordinate system.
+
+    angle = (angle < 0) ? (angle + Math.PI * 2) : angle;
+
+    return (r1 * r1 <= dist) && (dist <= r2 * r2) &&
+      (theta1 <= angle) && (angle <= theta2);
+};
+
 nv.models.axis = function() {
     "use strict";
 
@@ -11606,6 +11627,37 @@ nv.models.pie = function() {
                             }
                         }
                         return label;
+                    })
+                    .each(function (d, i) {
+                      var bb = this.getBBox(),
+                        center = labelsArc[i].centroid(d);
+                      var topLeft = {
+                          x : center[0] + bb.x,
+                          y : center[1] + bb.y
+                      };
+
+                      var topRight = {
+                          x : topLeft.x + bb.width,
+                          y : topLeft.y
+                      };
+
+                      var bottomLeft = {
+                          x : topLeft.x,
+                          y : topLeft.y + bb.height
+                      };
+
+                      var bottomRight = {
+                          x : topLeft.x + bb.width,
+                          y : topLeft.y + bb.height
+                      };
+
+                      d.visible = nv.utils.pointIsInArc(topLeft, d, arc) &&
+                        nv.utils.pointIsInArc(topRight, d, arc) &&
+                        nv.utils.pointIsInArc(bottomLeft, d, arc) &&
+                        nv.utils.pointIsInArc(bottomRight, d, arc);
+                    })
+                    .style('display', function (d) {
+                      return d.visible ? null : 'none';
                     })
                 ;
             }
