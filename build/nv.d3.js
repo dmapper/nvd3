@@ -1,4 +1,4 @@
-/* nvd3 version 1.8.5-dev (https://github.com/novus/nvd3) 2017-02-15 */
+/* nvd3 version 1.8.5-dev (https://github.com/novus/nvd3) 2017-09-27 */
 (function(){
 
 // set up main nv object
@@ -1330,11 +1330,33 @@ nv.utils.calcTicksX = function(numTicks, data) {
 
 
 /*
-returns number of ticks to actually use on Y axis, based on chart data
-*/
-nv.utils.calcTicksY = function(numTicks, data) {
-    // currently uses the same logic but we can adjust here if needed later
+ returns number of ticks to actually use on Y axis, based on chart data
+ */
+nv.utils.calcTicksY = function(numTicks, data, yAccessor) {
+  if (yAccessor) {
+    // find max number of values from all data streams
+    var numValues = 1;
+    for (var i=0; i < data.length; i += 1) {
+      var values = data[i] && data[i].values ? data[i].values : [];
+      var maxValue;
+      for (var j=0; j < values.length; j += 1) {
+        maxValue = values[j] && values[j][yAccessor] ? values[j][yAccessor]: 0;
+        numValues = maxValue > numValues ? maxValue : numValues;
+      }
+    }
+    nv.log("Requested number of ticks: ", numTicks);
+    nv.log("Calculated max values to be: ", numValues);
+    // make sure we don't have more ticks than values to avoid duplicates
+    numTicks = numTicks > numValues ? numValues - 1 : numTicks;
+    // make sure we have at least one tick
+    numTicks = numTicks < 1 ? 1 : numTicks;
+    // make sure it's an integer
+    numTicks = Math.floor(numTicks);
+    nv.log("Calculating tick count as: ", numTicks);
+    return numTicks;
+  } else {
     return nv.utils.calcTicksX(numTicks, data);
+  }
 };
 
 
@@ -3983,6 +4005,7 @@ nv.models.discreteBar = function() {
         , y = d3.scale.linear()
         , getX = function(d) { return d.x }
         , getY = function(d) { return d.y }
+        , yAccessor
         , forceY = [0] // 0 is forced by default.. this makes sense for the majority of bar graphs... user can always do chart.forceY([]) to remove
         , color = nv.utils.defaultColor()
         , showValues = false
@@ -4190,6 +4213,7 @@ nv.models.discreteBar = function() {
         showValues: {get: function(){return showValues;}, set: function(_){showValues=_;}},
         x:       {get: function(){return getX;}, set: function(_){getX=_;}},
         y:       {get: function(){return getY;}, set: function(_){getY=_;}},
+        yAccessor: {get: function(){return yAccessor;}, set: function(_){yAccessor=_;}},
         xScale:  {get: function(){return x;}, set: function(_){x=_;}},
         yScale:  {get: function(){return y;}, set: function(_){y=_;}},
         xDomain: {get: function(){return xDomain;}, set: function(_){xDomain=_;}},
@@ -4405,7 +4429,7 @@ nv.models.discreteBarChart = function() {
             if (showYAxis) {
                 yAxis
                     .scale(y)
-                    ._ticks( nv.utils.calcTicksY(availableHeight/36, data) )
+                    ._ticks( nv.utils.calcTicksY(availableHeight/36, data, discretebar.yAccessor()) )
                     .tickSize( -availableWidth, 0);
 
                 g.select('.nv-y.nv-axis').call(yAxis);
